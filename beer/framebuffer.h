@@ -24,5 +24,6 @@ int write_with_colors(char *buf, unsigned int len, unsigned char fg, unsigned ch
 int write(char *buf, unsigned int len);
 void set_fg_color(unsigned char color);
 void set_bg_color(unsigned char color);
+void clear_screen();
 
 #endif

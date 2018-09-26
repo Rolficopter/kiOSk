@@ -23,8 +23,8 @@ void fb_move_cursor(unsigned short pos)
 }
 
 void fb_write_cell(unsigned int pos, char c, unsigned char fg, unsigned char bg) {
-	fb[pos] = c;
-	fb[pos + 1] = ((fg & 0x0F) << 4) | (bg & 0x0F);
+	fb[pos*2] = c;
+	fb[pos*2 + 1] = ((bg & 0x0F) << 4) | (fg & 0x0F);
 }
 
 void set_cursor_position(unsigned char row, unsigned char col)
@@ -38,6 +38,7 @@ int write_with_colors(char *buf, unsigned int len, unsigned char fg, unsigned ch
 		fb_write_cell(cursor_position + i, buf[i], fg, bg);
 	}
 	cursor_position += len;
+	fb_move_cursor(cursor_position);
 	return cursor_position;
 }
 
@@ -55,4 +56,12 @@ void set_bg_color(unsigned char color)
 int write(char *buf, unsigned int len)
 {
 	return write_with_colors(buf, len, fg_color, bg_color);
+}
+
+void clear_screen()
+{
+	for(unsigned short i = 0; i < 80 * 25; i++)
+	{
+		fb_write_cell(i, ' ', FB_COLOR_WHITE, FB_COLOR_BLACK);
+	}
 }

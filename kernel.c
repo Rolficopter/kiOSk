@@ -1,7 +1,9 @@
 #include "beer/framebuffer.h"
 
+static char HELLO[] = "Hallo Welt!!1!1elf!1!";
 
 int kernel_main() {
-	write_with_colors("Hallo Welt!!1!1elf!1!", 21, FB_COLOR_GREEN, FB_COLOR_BLACK);
+	clear_screen();
+	write_with_colors(HELLO, 21, FB_COLOR_GREEN, FB_COLOR_BLACK);
 	return 0;
 }
