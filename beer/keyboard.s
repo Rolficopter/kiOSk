@@ -1,7 +1,7 @@
 global getc
 
 getc:
-	mov eah, 00h
+	mov ah, 00h
 	int 16h
 	mov ah, 0
 	ret
