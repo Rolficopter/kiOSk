@@ -18,4 +18,11 @@
 #define FB_COLOR_LIGHT_BROWN	14
 #define FB_COLOR_WHITE			15
 
+void set_cursor_position(unsigned char row, unsigned char col);
+
+int write_with_colors(char *buf, unsigned int len, unsigned char fg, unsigned char bg);
+int write(char *buf, unsigned int len);
+void set_fg_color(unsigned char color);
+void set_bg_color(unsigned char color);
+
 #endif
