@@ -8,7 +8,7 @@ int kernel_main() {
 	write_with_colors(HELLO, 21, FB_COLOR_GREEN, FB_COLOR_BLACK);
 	while (1)
 	{
-		char c = read_keyboard_code();
+		char c = getc();
 		write(&c, 1);
 	}
 	return 0;
