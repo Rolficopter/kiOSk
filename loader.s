@@ -1,5 +1,6 @@
 global loader
 
+
 MAGIC_NUMBER        equ 0x1BADB002
 FLAGS               equ 0x0
 CHECKSUM            equ -MAGIC_NUMBER
@@ -15,8 +16,7 @@ align 4
     dd CHECKSUM
 
 loader:
-    external kernel_main
-
+    extern kernel_main
     mov esp, kernel_stack + KERNEL_STACK_SIZE
 
     call kernel_main
