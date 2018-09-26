@@ -3,3 +3,4 @@ bochslog.txt
 *.iso
 *.elf
 *.o
+target
