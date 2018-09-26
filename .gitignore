@@ -1,0 +1,5 @@
+snapshot.txt
+bochslog.txt
+*.iso
+*.elf
+*.o
