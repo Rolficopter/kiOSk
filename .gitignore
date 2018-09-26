@@ -1,5 +1,6 @@
 snapshot.txt
 bochslog.txt
+com1.out
 *.iso
 *.elf
 *.o
