@@ -1,4 +1,4 @@
-OBJECTS = loader.o kernel.o
+OBJECTS = $(shell find . -type f \( -name '*.s' -o -name '*.c' \) | sed 's/.[cs]$$/.o/')
 CC = gcc
 CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector \
 		 -nostartfiles -nodefaultlibs -Wall -Wextra -Werror -c
