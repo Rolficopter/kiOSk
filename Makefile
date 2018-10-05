@@ -1,4 +1,4 @@
-OBJECTS = $(shell find . -type f \( -name '*.s' -o -name '*.c' \) | sed 's/.[cs]$$/.o/')
+OBJECTS = $(shell find . -type f -name '*.s' -o -name '*.c' | sed 's/.[cs]$$/.o/')
 CC = gcc
 CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector \
 		 -nostartfiles -nodefaultlibs -Wall -Wextra -Werror -c
@@ -34,4 +34,5 @@ run: os.iso
 	$(AS) $(ASFLAGS) $< -o $@
 
 clean:
-	rm -rf *.o kernel.elf os.iso
+	find . -type f -name '*.o' -exec rm {} +
+	rm -rf kernel.elf os.iso
